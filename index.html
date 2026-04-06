@@ -1,0 +1,286 @@
+import React from 'react';
+import { 
+  Activity, 
+  Bone, 
+  Brain, 
+  Wind, 
+  ShieldCheck, 
+  Trophy, 
+  Users,
+  CheckCircle2,
+  BookOpen
+} from 'lucide-react';
+
+export default function App() {
+  const primaryColor = '#5E88A6';
+  
+  // 重要なテキストをハイライトするコンポーネント
+  const Highlight = ({ children }) => (
+    <span className="font-bold text-gray-900 bg-[#5E88A6]/15 px-1.5 py-0.5 rounded border-b-2" style={{ borderColor: primaryColor }}>
+      {children}
+    </span>
+  );
+
+  // 数値や結果を強調するボックスコンポーネント
+  const StatBox = ({ value, label }) => (
+    <div className="bg-white border rounded-xl p-4 text-center shadow-sm flex-1" style={{ borderColor: `${primaryColor}30` }}>
+      <div className="text-xl md:text-2xl font-bold mb-1" style={{ color: primaryColor }}>{value}</div>
+      <div className="text-sm font-medium text-gray-600">{label}</div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-[#FAFAFA] text-gray-800 font-sans selection:bg-[#5E88A6] selection:text-white pb-24">
+      
+      {/* Hero Section */}
+      <header className="py-20 px-6 md:px-12 flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-6" style={{ backgroundColor: `${primaryColor}15`, color: primaryColor }}>
+          最新の研究論文サマリー
+        </div>
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 leading-tight" style={{ color: primaryColor }}>
+          科学が証明する<br className="hidden md:block" />ピラティスの効果まとめ
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl">
+          体と心の変化から、痛みへのアプローチ、最新のデータまで。<br />専門的な研究結果を分かりやすく解説します。
+        </p>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-6 md:px-12 space-y-16">
+
+        {/* Chapter 1 */}
+        <section className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primaryColor }}></div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-2xl bg-gray-50 flex items-center justify-center">
+              <Activity size={26} style={{ color: primaryColor }} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800">1. 体の土台（インナーマッスル）と姿勢の改善</h2>
+          </div>
+          <div className="space-y-6 text-gray-700 leading-loose">
+            <p>
+              ピラティスは、単なる筋トレではなく、体の深部にあるインナーマッスルを鍛え、構造から体を変える効果があります。
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+              <StatBox value="超音波で確認" label="インナーマッスルの厚みが増加" />
+              <StatBox value="歪みをリセット" label="猫背や反り腰の改善" />
+            </div>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>独自の呼吸法と意識的な動きにより、<Highlight>背骨を支える筋肉が優先的に働き、姿勢が安定</Highlight>します。</span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>肩甲骨や骨盤の正しい位置を体が覚えることで、現代人に多い不良姿勢を根本から見直します。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Chapter 2 */}
+        <section className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primaryColor }}></div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-2xl bg-gray-50 flex items-center justify-center">
+              <ShieldCheck size={26} style={{ color: primaryColor }} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800">2. 慢性的な「腰痛」に対する確かな改善効果</h2>
+          </div>
+          <div className="space-y-6 text-gray-700 leading-loose">
+            <p>
+              世界中の研究で最もはっきりと証明されているのが、慢性的な腰痛に対する効果です。何もしていない時や一般的な運動と比べても、痛みを和らげる力が優れています。
+            </p>
+            <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
+              <p className="font-semibold text-gray-900 mb-2">研究データのポイント：</p>
+              <ul className="space-y-3">
+                <li className="flex gap-3">
+                  <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                  <span>多くの研究結果をまとめたデータで、<Highlight>痛みを減らす効果が「極めて高い」</Highlight>と判定されました。</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                  <span>数値上の変化だけでなく、<Highlight>患者自身が「はっきりと良くなった」と実感できるレベル</Highlight>まで回復しています。</span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                  <span>レッスン終了から<Highlight>半年経っても痛みの少ない状態が続く</Highlight>ことが確認されています。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Chapter 3 */}
+        <section className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primaryColor }}></div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-2xl bg-gray-50 flex items-center justify-center">
+              <Bone size={26} style={{ color: primaryColor }} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800">3. 背骨の歪み（側弯症など）のケア</h2>
+          </div>
+          <div className="space-y-6 text-gray-700 leading-loose">
+            <p>
+              側弯症（背骨が曲がる症状）などに対して、手術に頼らないケア方法としても注目されています。
+            </p>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>背骨の曲がり具合やねじれ、胸の広がりなどにおいて、<Highlight>客観的な数値の改善が実証</Highlight>されています。</span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>弱っている筋肉を鍛え、縮んで硬くなっている筋肉を伸ばすことで、<Highlight>左右の筋肉のアンバランスを解消</Highlight>します。</span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>姿勢の悪さからくる内臓の圧迫や、呼吸のしづらさを防ぐ効果も期待されています。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Chapter 4 */}
+        <section className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primaryColor }}></div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-2xl bg-gray-50 flex items-center justify-center">
+              <Users size={26} style={{ color: primaryColor }} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800">4. 高齢者の転倒予防と、いつまでも歩ける体づくり</h2>
+          </div>
+          <div className="space-y-6 text-gray-700 leading-loose">
+            <p>
+              加齢による筋肉量の減少や虚弱の予防に最適です。健康を保つために必要な「筋力・バランス・柔軟性」をまとめて鍛えることができます。
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+              <StatBox value="大幅に減少" label="転倒リスクへの効果" />
+              <StatBox value="平均 38.29m 増" label="6分間での歩行距離の伸び" />
+            </div>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>足の裏からの感覚が研ぎ澄まされ、動いている時のバランス感覚が良くなるため、<Highlight>転倒のリスクを非常に大きく下げる</Highlight>ことができます。</span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>歩く距離が伸びるなど、自立した日常生活を長く送るための体力が向上します。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Chapter 5 */}
+        <section className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primaryColor }}></div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-2xl bg-gray-50 flex items-center justify-center">
+              <Brain size={26} style={{ color: primaryColor }} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800">5. 心の健康（メンタルヘルス）への大きな効果</h2>
+          </div>
+          <div className="space-y-6 text-gray-700 leading-loose">
+            <p>
+              心と体をつなぐエクササイズとして、専門的な治療に匹敵するほどのメンタル改善効果があることが分かっています。
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+              <StatBox value="活力アップ" label="非常に大きな効果" />
+              <StatBox value="不安の軽減" label="非常に大きな効果" />
+              <StatBox value="落ち込み軽減" label="非常に大きな効果" />
+            </div>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span><Highlight>深い呼吸がリラックス神経（副交感神経）を刺激</Highlight>し、自律神経のバランスを整えます。</span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>原因不明の全身の痛み（線維筋痛症など）に対しても、痛みを和らげ、生活の質を大きく向上させることが確認されています。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Chapter 6 */}
+        <section className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primaryColor }}></div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-2xl bg-gray-50 flex items-center justify-center">
+              <Trophy size={26} style={{ color: primaryColor }} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800">6. スポーツのパフォーマンス向上とケガ予防</h2>
+          </div>
+          <div className="space-y-6 text-gray-700 leading-loose">
+            <p>
+              体を正確にコントロールする力は、トップアスリートの競技力アップやケガの予防に欠かせないものとして導入されています。
+            </p>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>強固な体幹を作ることで、野球やゴルフなどで<Highlight>下半身の力を上半身へ無駄なく伝える</Highlight>ことができます。</span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>急な方向転換でも体がブレなくなり、<Highlight>肉離れなどのケガ予防</Highlight>に直結します。</span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>独自の呼吸法によって呼吸をする筋肉の持久力が高まり、ハードな運動時のスタミナがアップします。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Chapter 7 */}
+        <section className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-2 h-full" style={{ backgroundColor: primaryColor }}></div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-2xl bg-gray-50 flex items-center justify-center">
+              <Wind size={26} style={{ color: primaryColor }} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800">7. コロナ後遺症などからの回復サポート</h2>
+          </div>
+          <div className="space-y-6 text-gray-700 leading-loose">
+            <p>
+              ピラティスの「呼吸のコントロール」と「体幹の安定」は、新型コロナウイルスの後遺症などのリハビリとしても成果を上げています。
+            </p>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>胸をしっかり広げる呼吸により、<Highlight>感染症で低下した肺の機能と、硬くなった胸周りの動きを改善</Highlight>します。</span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2 className="shrink-0 mt-1" size={20} style={{ color: primaryColor }} />
+                <span>長期間の安静によって<Highlight>衰えてしまった筋力やバランス感覚を安全に回復</Highlight>させ、生活の質（QOL）を取り戻します。</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* References Section */}
+        <section className="bg-gray-50/80 p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 rounded-2xl bg-white border border-gray-200 flex items-center justify-center shadow-sm">
+              <BookOpen size={24} style={{ color: primaryColor }} />
+            </div>
+            <h2 className="text-xl font-bold text-gray-800">主な引用・参考文献</h2>
+          </div>
+          <div className="space-y-4 text-sm text-gray-600 leading-relaxed break-all">
+            <p className="text-gray-500 mb-4">※資料に記載されている主要なメタアナリシス・システマティックレビュー論文（一部抜粋）</p>
+            <ul className="list-decimal pl-5 space-y-3">
+              <li>Bullo, V., et al. "The effects of Pilates exercise training on physical fitness and wellbeing in the elderly: A systematic review for future exercise prescription."</li>
+              <li>"The effects of pilates on mental health outcomes: A meta-analysis of..." (PubMed: 29609943)</li>
+              <li>"The impact of Pilates exercise for depression symptoms in female patients: A systematic review and meta-analysis" (PMC: 10578749)</li>
+              <li>"Effect of Pilates on Pain and Health-Related Quality of Life in Fibromyalgia Patients: A Systematic Review and Meta-Analysis" (MDPI)</li>
+              <li>"How Pilates Exercises Affect Sports Performance?: A Systematic Review" (DergiPark)</li>
+              <li>"Pilates Reducing Falls Risk Factors in Healthy Older Adults: A Systematic Review and Meta-Analysis" (Frontiers)</li>
+              <li>"Effects of Pilates Exercises on Core Stability After Recovery..."</li>
+            </ul>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  );
+}
