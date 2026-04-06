@@ -1,239 +1,363 @@
-import React from 'react';
-import { CheckCircle2, Activity, Brain, Users, ArrowUpRight, ChevronRight, BookOpen } from 'lucide-react';
-
-const PrimaryColor = "#5E88A6";
-
-const Section = ({ number, title, children, highlights }) => (
-  <section className="mb-24 relative">
-    <div className="flex items-center gap-4 mb-8">
-      <span 
-        className="flex items-center justify-center w-12 h-12 rounded-full text-white font-bold text-xl"
-        style={{ backgroundColor: PrimaryColor }}
-      >
-        {number}
-      </span>
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-800 leading-tight">
-        {title}
-      </h2>
-    </div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ピラティスの科学的な効果まとめ</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100">
-      <div className="prose prose-lg max-w-none text-gray-600 leading-loose">
-        {children}
-      </div>
-      
-      {highlights && highlights.length > 0 && (
-        <div className="mt-8 pt-8 border-t border-gray-100">
-          <h3 className="text-sm font-bold tracking-wider text-gray-400 uppercase mb-4">重要なポイント</h3>
-          <ul className="space-y-4">
-            {highlights.map((highlight, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 shrink-0 mt-1" style={{ color: PrimaryColor }} />
-                <span className="font-semibold text-gray-800">{highlight}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  </section>
-);
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d9488', // Teal 600
+                        secondary: '#14b8a6', // Teal 500
+                        light: '#f0fdfa', // Teal 50
+                        dark: '#115e59', // Teal 800
+                    },
+                    fontFamily: {
+                        sans: ['"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', 'Meiryo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed">
 
-export default function App() {
-  return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-800 selection:bg-[#5E88A6] selection:text-white">
-      {/* Header */}
-      <header className="bg-white py-20 px-6 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-            ピラティスの科学的効果 <br className="hidden md:block" />
-            <span style={{ color: PrimaryColor }}>心身を整えるメカニズムとエビデンス</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            複数の信頼性の高い論文や研究データから明らかになった、ピラティスが体と心にもたらす本質的な効果を分かりやすくまとめました。
-          </p>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-primary to-secondary text-white py-16 px-4 shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CgkJPGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz4KCTwvc3ZnPg==')]"></div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">ピラティスの科学的な効果まとめ</h1>
+            <p class="text-lg md:text-xl text-teal-50">体の動き、痛みの改善、心の健康に関する研究レポート</p>
         </div>
-      </header>
+    </header>
 
-      {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 md:py-12">
         
-        <Section 
-          number="1" 
-          title="体の土台を整える：インナーマッスルの強化と姿勢改善"
-          highlights={[
-            "体の奥の筋肉が実際に「太く・強く」なることが超音波検査で証明されている",
-            "猫背や反り腰が改善され、体への負担が少ない理想的な姿勢になる"
-          ]}
-        >
-          <p>
-            ピラティスは、単なるストレッチや運動ではなく、<strong>体の奥深くにある筋肉（インナーマッスル）を意識的に使い、鍛える</strong>メソッドです。特有の呼吸法とともにお腹をへこませる動きを行うことで、体を支えるコルセットのような役割を果たす筋肉が最大限に働きます。
-          </p>
-          <p>
-            驚くべきことに、これらの筋肉は一時的に使われるだけでなく、継続することで<strong>筋肉そのものが厚く、強くなる</strong>ことが超音波検査を用いた研究で確認されています。
-          </p>
-          <p>
-            また、首の位置、肩甲骨の安定、骨盤の傾きを正しく整えることで、現代人に多い「猫背」や「反り腰」を減らします。これにより、無駄な力が抜け、手足に効率よく力を伝えられるようになります。
-          </p>
-        </Section>
-
-        <Section 
-          number="2" 
-          title="長引く腰痛（慢性腰痛）を根本からやわらげる"
-          highlights={[
-            "患者自身が「痛みがハッキリ減った」と実感できるレベルの強い鎮痛効果がある",
-            "ピラティスをやめた後も、半年間にわたって痛みの軽減効果が続く"
-          ]}
-        >
-          <p>
-            ピラティスが世界中で医療やリハビリに取り入れられている最大の理由の一つが、<strong>「長引く腰痛」に対する高い効果</strong>です。多くの研究データを集めた分析で、一般的な運動や何もしない場合と比べて、腰痛を大きく減らすことが証明されています。
-          </p>
-          <p>
-            痛みの減り具合は、患者さん自身が<strong>「日常生活が楽になった」とハッキリ実感できるレベル</strong>に達します。
-          </p>
-          <p>
-            さらに重要なことは、ピラティスをやめた<span style={{ color: PrimaryColor, fontWeight: 'bold' }}>半年後であっても痛みの軽減効果が続いている</span>という事実です。これは、ピラティスがその場しのぎの対症療法ではなく、「体への負担を減らす正しい動かし方」を脳と体に覚えさせる根本的なアプローチであることを示しています。
-          </p>
-        </Section>
-
-        <Section 
-          number="3" 
-          title="背骨のゆがみ・不良姿勢の改善効果"
-          highlights={[
-            "側弯症など、背骨のゆがみを整える効果が確認されている",
-            "内臓の圧迫や呼吸機能の低下を防ぐ、安全な治療法として注目されている"
-          ]}
-        >
-          <p>
-            近年、ピラティスは慢性的な痛みだけでなく、側弯症（背骨が曲がる症状）などの「背骨の変形」を体に負担をかけずに整える方法として注目されています。
-          </p>
-          <p>
-            背骨がゆがむと、片側の筋肉は縮こまり、反対側の筋肉は弱く引き伸ばされてしまいます。ピラティスは、この<strong>左右のアンバランスを解消し、縮んだ筋肉を伸ばし、弱い筋肉を鍛える</strong>ことで、背骨にかかる偏ったストレスを分散させます。
-          </p>
-          <p>
-            姿勢の悪さや背骨の変形は、見た目の問題だけでなく、内臓を圧迫したり呼吸を浅くしたりする原因にもなります。ピラティスはこれらの進行を遅らせ、体を健康な状態に保つための有効な手段として認められつつあります。
-          </p>
-        </Section>
-
-        <Section 
-          number="4" 
-          title="高齢者の体力アップと「転倒リスク」の劇的な低下"
-          highlights={[
-            "高齢者の転倒リスクを「極めて大きく」減少させる",
-            "歩ける距離が伸び、買い物や散歩など自立した生活を長く続けられるようになる"
-          ]}
-        >
-          <p>
-            年齢を重ねるとともに筋肉が落ち、バランス感覚や反応速度が鈍ることで「転倒（転ぶこと）」の危険性が高まります。高齢者の転倒は、寝たきりにつながる最大の原因の一つです。
-          </p>
-          <p>
-            ピラティスは、高齢者に必要な「筋力・バランス・柔軟性」を安全に鍛えることができる最適な運動です。研究データによると、ピラティスは<span style={{ color: PrimaryColor, fontWeight: 'bold' }}>高齢者の転倒リスクを劇的に（極めて大きな効果量で）減らす</span>ことが判明しています。
-          </p>
-          <p>
-            足の裏の感覚を研ぎ澄まし、体の中心（重心）を意識し、バランスを崩してもサッと立て直す能力が身につくためです。また、歩く力も向上し、自立した健康的な生活（健康寿命）を伸ばすことに直接つながります。
-          </p>
-        </Section>
-
-        <Section 
-          number="5" 
-          title="心と脳を癒やす：不安・うつの改善と活力の向上"
-          highlights={[
-            "不安やうつ気分を減らし、活力を高める効果が「非常に大きい」",
-            "深い呼吸と集中が自律神経を整え、睡眠の質を高め、痛みの悪循環を断ち切る"
-          ]}
-        >
-          <p>
-            ピラティスは「心と体をつなぐ運動」と呼ばれており、身体だけでなく精神的な健康にも並外れた効果を発揮します。データによると、<strong>薬やカウンセリングに匹敵するレベルで、不安や抑うつ症状を和らげる</strong>ことがわかっています。
-          </p>
-          <p>
-            この劇的な効果の理由は、ピラティスの「深い呼吸」と「自分の体に深く集中すること」にあります。これにより、<strong>自律神経がリラックスモード（副交感神経優位）に切り替わり</strong>、嫌なことを繰り返し考えてしまう脳のクセ（反芻思考）をストップさせます。
-          </p>
-          <p>
-            心が元気になり、「自分の体をコントロールできている」という自信（自己効力感）を取り戻すことで、疲労感が消え、日々の活力が大きく向上します。また、原因不明の全身の痛み（線維筋痛症など）を和らげる効果も確認されています。
-          </p>
-        </Section>
-
-        <Section 
-          number="6" 
-          title="スポーツのパフォーマンス向上とケガの予防"
-          highlights={[
-            "体の軸がブレなくなるため、走るスピードや俊敏性がアップする",
-            "無駄な動きが減り、筋肉や関節のケガ（スポーツ障害）を予防できる"
-          ]}
-        >
-          <p>
-            ピラティスは元々、負傷した兵士のリハビリから生まれましたが、現在ではトップアスリートの能力アップやケガ予防に欠かせないものとなっています。
-          </p>
-          <p>
-            スポーツにおいて重要なのは、体の中心（体幹）で作ったパワーを、いかにロスなく手足に伝えるかです。ピラティスで体の中心を強固にすることで、野球の投球やバッティング、格闘技の蹴りなどにおいて、<strong>爆発的な力をスムーズに発揮できる</strong>ようになります。
-          </p>
-          <p>
-            また、急な方向転換やストップ動作でも体の軸がブレなくなるため、<strong>俊敏性が上がり、同時に筋肉の肉離れや関節のケガを防ぐ</strong>強い体が作られます。さらに特有の呼吸法により、激しい運動中の呼吸のスタミナも向上します。
-          </p>
-        </Section>
-
-        <Section 
-          number="7" 
-          title="新しい可能性：新型コロナ感染後の体力回復"
-          highlights={[
-            "コロナ後の体力低下や呼吸機能の改善に高い効果を発揮する",
-            "病気や長期療養で衰えた神経と筋肉の働きを安全に回復させる"
-          ]}
-        >
-          <p>
-            近年、ピラティスの「呼吸をコントロールする力」と「体幹を安定させる力」は、新型コロナウイルス感染後の後遺症や体力低下からの回復（リハビリ）にも応用されています。
-          </p>
-          <p>
-            長期間の療養で衰えてしまった筋力や、低下した肺の機能を回復させるために、ピラティスの胸を大きく広げる呼吸法と無理のない運動が非常に適しています。
-          </p>
-          <p>
-            研究では、ピラティスを行った患者さんは、体のふらつきが減り、姿勢を保つ筋肉のスタミナが大きく回復することが確認されており、病気で弱った体を安全かつ効果的に元の状態に戻す手段として証明されています。
-          </p>
-        </Section>
-
-        {/* Conclusion */}
-        <div 
-          className="rounded-3xl p-10 md:p-14 text-center mt-20 text-white shadow-xl"
-          style={{ backgroundColor: PrimaryColor }}
-        >
-          <h2 className="text-3xl font-bold mb-6">結論</h2>
-          <p className="text-lg md:text-xl leading-relaxed opacity-90 max-w-2xl mx-auto font-medium">
-            ピラティスは、単に筋肉を鍛えるトレーニングではありません。脳（神経）、骨格・筋肉、そして自律神経のつながりを再構築し、<strong>人間が本来持っている「体が効率よく動く仕組み」を最大限に引き出す、優れたシステム</strong>です。<br/><br/>
-            健康な人から、痛みを抱える人、トップアスリート、そして高齢者に至るまで、極めて安全で高い効果をもたらすことが、多くの科学的データによって証明されています。
-          </p>
-        </div>
-
-        {/* References */}
-        <div className="mt-24 pt-12 border-t border-gray-200">
-          <div className="flex items-center gap-2 mb-6">
-            <BookOpen className="w-5 h-5 text-gray-400" />
-            <h3 className="text-lg font-bold text-gray-700">主な引用元・参考文献</h3>
-          </div>
-          <div className="bg-gray-100 rounded-xl p-6 text-sm text-gray-500 overflow-y-auto max-h-64">
-            <ul className="space-y-3 list-disc pl-5">
-              <li>Pilates: how does it work and who needs it? - PMC</li>
-              <li>The efficacy and safety of pilates exercise in patients with knee osteoarthritis</li>
-              <li>Effects of Pilates Training on Physiological and Psychological Health Parameters in Healthy Older Adults</li>
-              <li>Benefits of Pilates in the Elderly Population: A Systematic Review and Meta-Analysis</li>
-              <li>Pilates to Improve Core Muscle Activation in Chronic Low Back Pain</li>
-              <li>Effectiveness of Pilates exercise in treating people with chronic low back pain</li>
-              <li>The effects of Pilates on mental health outcomes: A meta-analysis</li>
-              <li>Effects of Pilates exercises on spine deformities and posture</li>
-              <li>HOW PILATES EXERCISES AFFECT SPORTS PERFORMANCE: A SYSTEMATIC REVIEW</li>
-              <li>Effects of Pilates Exercises on Core Stability After Recovery from COVID-19</li>
-              <li className="pt-2 text-xs opacity-70 list-none -ml-5">※他、計28の学術論文・メタ解析データに基づく</li>
+        <!-- 目次 -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 sm:p-8 mb-12">
+            <h2 class="text-xl font-bold text-dark mb-4 flex items-center border-b pb-2">
+                <i class="fa-solid fa-list-ul mr-3 text-primary"></i> 目次
+            </h2>
+            <ul class="space-y-2 text-slate-600 font-medium">
+                <li><a href="#chap1" class="hover:text-primary transition-colors block p-2 hover:bg-light rounded"><span class="text-primary mr-2">第1章</span>基礎的な体力と姿勢の改善</a></li>
+                <li><a href="#chap2" class="hover:text-primary transition-colors block p-2 hover:bg-light rounded"><span class="text-primary mr-2">第2章</span>長引く腰痛への効果</a></li>
+                <li><a href="#chap3" class="hover:text-primary transition-colors block p-2 hover:bg-light rounded"><span class="text-primary mr-2">第3章</span>背骨のゆがみや悪い姿勢の改善</a></li>
+                <li><a href="#chap4" class="hover:text-primary transition-colors block p-2 hover:bg-light rounded"><span class="text-primary mr-2">第4章</span>シニア世代の体力維持と転倒予防</a></li>
+                <li><a href="#chap5" class="hover:text-primary transition-colors block p-2 hover:bg-light rounded"><span class="text-primary mr-2">第5章</span>心の健康とリフレッシュ効果</a></li>
+                <li><a href="#chap6" class="hover:text-primary transition-colors block p-2 hover:bg-light rounded"><span class="text-primary mr-2">第6章</span>スポーツの成績アップとケガ予防</a></li>
+                <li><a href="#chap7" class="hover:text-primary transition-colors block p-2 hover:bg-light rounded"><span class="text-primary mr-2">第7章</span>新型コロナ感染後の呼吸と体力の回復</a></li>
+                <li><a href="#references" class="hover:text-primary transition-colors block p-2 hover:bg-light rounded"><span class="text-primary mr-2"><i class="fa-solid fa-book"></i></span>引用元・参考文献</a></li>
             </ul>
-          </div>
         </div>
 
-      </main>
+        <!-- 第1章 -->
+        <section id="chap1" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mb-10 pt-16 -mt-16">
+            <div class="p-6 sm:p-8 border-t-4 border-primary">
+                <div class="flex items-center mb-6">
+                    <div class="bg-light text-primary w-12 h-12 rounded-full flex items-center justify-center mr-4 shrink-0">
+                        <i class="fa-solid fa-child-reaching text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">第1章 基礎的な体力と姿勢の改善</h2>
+                </div>
+                <p class="mb-6">ピラティスは、健康な大人からスポーツ選手、お年寄りに至るまで、柔軟性や筋力、バランス感覚など、体の基礎となる能力を全体的にアップさせることが多くの研究でわかっています。これには、筋肉や体の構造が良い方向に変わるという明確な理由があります。</p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-5 rounded-lg border border-slate-100">
+                        <h3 class="font-bold text-primary mb-3 flex items-center"><i class="fa-solid fa-dumbbell mr-2"></i>インナーマッスルが鍛えられる</h3>
+                        <p class="text-sm">動く前にお腹をへこませるような特別な呼吸と意識の仕方によって、お腹の奥深くや背骨を支える筋肉（インナーマッスル）がしっかりと使われます。一時的に筋肉が動くだけでなく、続けることで筋肉自体に厚みが増し、体を内側からしっかり支えられるようになります。</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-lg border border-slate-100">
+                        <h3 class="font-bold text-primary mb-3 flex items-center"><i class="fa-solid fa-person-rays mr-2"></i>姿勢と体のバランスが良くなる</h3>
+                        <p class="text-sm">頭、首、肩、骨盤を正しい位置にコントロールする練習をすることで、現代人に多い「猫背」や「反り腰」を減らします。体に負担の少ない良い姿勢を作ることで、手足を動かす時に無駄な力を使わず、スムーズに動けるようになります。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-8 text-center">
-        <p className="text-gray-400 text-sm">
-          このページは提供された「ピラティス論文まとめ」資料に基づいて作成されています。
-        </p>
-      </footer>
-    </div>
-  );
-}
+        <!-- 第2章 -->
+        <section id="chap2" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mb-10 pt-16 -mt-16">
+            <div class="p-6 sm:p-8 border-t-4 border-primary">
+                <div class="flex items-center mb-6">
+                    <div class="bg-light text-primary w-12 h-12 rounded-full flex items-center justify-center mr-4 shrink-0">
+                        <i class="fa-solid fa-notes-medical text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">第2章 長引く腰痛への効果</h2>
+                </div>
+                <p class="mb-6">世界中の研究で最も証拠が多いのが、ピラティスによる「長引く腰痛（慢性腰痛）」の改善効果です。何もしない場合や、ただ適当に運動する場合と比べて、確実に腰の痛みを減らすことがわかっています。</p>
+                
+                <div class="mb-6">
+                    <h3 class="font-bold text-dark mb-3 border-l-4 border-secondary pl-3">痛みが減り、効果が長持ちする</h3>
+                    <p class="text-sm mb-4">ピラティスを始めると、短い期間でも日常生活が楽になるレベルで痛みが減ります。さらに、ピラティスをやめた半年後でも、痛みが少ない状態や動きやすさが保たれることが確認されており、体の間違った使い方の「根本的なクセの改善」につながっています。</p>
+                    
+                    <!-- 表1 -->
+                    <div class="overflow-x-auto rounded-lg border border-slate-200">
+                        <table class="w-full text-sm text-left">
+                            <caption class="p-3 bg-slate-50 text-slate-600 font-semibold text-center border-b border-slate-200">表1: 腰痛に対するピラティスの効果（数値がマイナスなほど痛みが減っている）</caption>
+                            <thead class="bg-light text-primary">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">比較した相手</th>
+                                    <th scope="col" class="px-4 py-3">痛みの減り具合</th>
+                                    <th scope="col" class="px-4 py-3">効果の評価</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-slate-100">
+                                    <td class="px-4 py-3 font-medium">他の一般的な運動</td>
+                                    <td class="px-4 py-3">-1.74</td>
+                                    <td class="px-4 py-3">ピラティスの方が大きく痛みが減る</td>
+                                </tr>
+                                <tr class="border-b border-slate-100">
+                                    <td class="px-4 py-3 font-medium">運動を全くしない場合</td>
+                                    <td class="px-4 py-3">-1.01</td>
+                                    <td class="px-4 py-3">ピラティスをした方が痛みが減る</td>
+                                </tr>
+                                <tr class="bg-teal-50/50 font-bold">
+                                    <td class="px-4 py-3">全体のまとめ</td>
+                                    <td class="px-4 py-3 text-primary">-1.25</td>
+                                    <td class="px-4 py-3">確かな痛みの軽減効果がある</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第3章 -->
+        <section id="chap3" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mb-10 pt-16 -mt-16">
+            <div class="p-6 sm:p-8 border-t-4 border-primary">
+                <div class="flex items-center mb-6">
+                    <div class="bg-light text-primary w-12 h-12 rounded-full flex items-center justify-center mr-4 shrink-0">
+                        <i class="fa-solid fa-bone text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">第3章 背骨のゆがみや悪い姿勢の改善</h2>
+                </div>
+                <p class="mb-4">ピラティスは痛みを減らすだけでなく、側弯症（背骨が曲がる症状）などの背骨のゆがみや、極端に悪い姿勢を、手術などをせずに改善する方法としても注目されています。体の立体的なバランスに直接良い影響を与えます。</p>
+                <ul class="list-disc list-inside space-y-2 text-slate-600 bg-slate-50 p-5 rounded-lg border border-slate-100">
+                    <li><strong>筋肉のアンバランスを直す:</strong> 姿勢の崩れによって弱ってしまった筋肉を鍛え、硬く縮んでしまった筋肉を伸ばすことで、左右や前後のバランスを整えます。</li>
+                    <li><strong>ゆがみの角度が改善:</strong> 実際に背骨の曲がる角度や、体のねじれなどが良くなることが測定によって示されています。</li>
+                    <li><strong>症状の悪化を防ぐ:</strong> 悪い姿勢のまま生活することで起きる内臓の圧迫や、呼吸が浅くなること、背骨のクッション（椎間板）のすり減りが進むのを遅らせてくれます。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 第4章 -->
+        <section id="chap4" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mb-10 pt-16 -mt-16">
+            <div class="p-6 sm:p-8 border-t-4 border-primary">
+                <div class="flex items-center mb-6">
+                    <div class="bg-light text-primary w-12 h-12 rounded-full flex items-center justify-center mr-4 shrink-0">
+                        <i class="fa-solid fa-person-cane text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">第4章 シニア世代の体力維持と転倒予防</h2>
+                </div>
+                <p class="mb-6">年齢とともに筋肉が減ったりバランス感覚が落ちたりすることに対して、ピラティスは「筋力・バランス・柔軟性」を一度に高められる最適な運動です。特に<strong>「転んでケガをするリスク」を劇的に下げる</strong>ことが、医学的にも大変素晴らしい効果として確認されています。</p>
+                
+                <!-- 表2 -->
+                <div class="overflow-x-auto rounded-lg border border-slate-200">
+                    <table class="w-full text-sm text-left">
+                        <caption class="p-3 bg-slate-50 text-slate-600 font-semibold text-center border-b border-slate-200">表2: 高齢者に対するピラティスの効果の大きさ</caption>
+                        <thead class="bg-light text-primary">
+                            <tr>
+                                <th scope="col" class="px-4 py-3">良くなる項目</th>
+                                <th scope="col" class="px-4 py-3">効果の評価</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100 bg-teal-50/30">
+                                <td class="px-4 py-3 font-bold text-red-600">転倒のリスク（転びにくさ）</td>
+                                <td class="px-4 py-3 font-bold text-red-600">非常に効果が大きい</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-4 py-3 font-medium">筋力</td>
+                                <td class="px-4 py-3 text-primary font-medium">中くらいの効果</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-4 py-3 font-medium">日常の動きやすさ</td>
+                                <td class="px-4 py-3 text-primary font-medium">中くらいの効果</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-4 py-3 font-medium">体の柔らかさ（柔軟性）</td>
+                                <td class="px-4 py-3 text-primary font-medium">中くらいの効果</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium">バランス感覚</td>
+                                <td class="px-4 py-3 text-primary font-medium">中くらいの効果</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第5章 -->
+        <section id="chap5" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mb-10 pt-16 -mt-16">
+            <div class="p-6 sm:p-8 border-t-4 border-primary">
+                <div class="flex items-center mb-6">
+                    <div class="bg-light text-primary w-12 h-12 rounded-full flex items-center justify-center mr-4 shrink-0">
+                        <i class="fa-solid fa-brain text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">第5章 心の健康とリフレッシュ効果</h2>
+                </div>
+                <p class="mb-6">ピラティスは体だけでなく、心にもアプローチする運動です。専門的な心の治療に匹敵するほど、気分を良くする効果があります。深い呼吸が自律神経（体のオンとオフのスイッチ）を整え、自分の体の動きに集中することで、頭の中がスッキリする効果（マインドフルネス）が得られます。</p>
+
+                <!-- 表3 -->
+                <div class="overflow-x-auto rounded-lg border border-slate-200">
+                    <table class="w-full text-sm text-left">
+                        <caption class="p-3 bg-slate-50 text-slate-600 font-semibold text-center border-b border-slate-200">表3: ピラティスによる心の健康への効果（数値が大きいほど効果大）</caption>
+                        <thead class="bg-light text-primary">
+                            <tr>
+                                <th scope="col" class="px-4 py-3">心の状態</th>
+                                <th scope="col" class="px-4 py-3">改善の大きさ</th>
+                                <th scope="col" class="px-4 py-3">評価</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-4 py-3 font-bold text-dark">活力がわいてくる</td>
+                                <td class="px-4 py-3 font-bold text-lg text-primary">1.49</td>
+                                <td class="px-4 py-3">極めて大きい</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-4 py-3 font-bold text-dark">不安な気持ちが減る</td>
+                                <td class="px-4 py-3 font-bold text-lg text-primary">1.29</td>
+                                <td class="px-4 py-3">非常に大きい</td>
+                            </tr>
+                            <tr class="border-b border-slate-100">
+                                <td class="px-4 py-3 font-bold text-dark">気分の落ち込みが減る</td>
+                                <td class="px-4 py-3 font-bold text-lg text-primary">1.27</td>
+                                <td class="px-4 py-3">非常に大きい</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-dark">疲れにくくなる</td>
+                                <td class="px-4 py-3 font-bold text-lg text-primary">0.93</td>
+                                <td class="px-4 py-3">大きい</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-slate-500 mt-2 text-right">※ 専門的な基準では数値が「0.8」を超えると「大きな効果」とされます。上記はそれを大きく上回っています。</p>
+            </div>
+        </section>
+
+        <!-- 第6章 -->
+        <section id="chap6" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mb-10 pt-16 -mt-16">
+            <div class="p-6 sm:p-8 border-t-4 border-primary">
+                <div class="flex items-center mb-6">
+                    <div class="bg-light text-primary w-12 h-12 rounded-full flex items-center justify-center mr-4 shrink-0">
+                        <i class="fa-solid fa-person-running text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">第6章 スポーツの成績アップとケガ予防</h2>
+                </div>
+                <p class="mb-4">トップアスリートが競技の成績を上げたり、ケガを防いだりするためにも、ピラティスの「体を精密にコントロールする技術」がスポーツ科学の世界で取り入れられています。</p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                        <div class="text-secondary mb-2"><i class="fa-solid fa-bolt text-xl"></i></div>
+                        <h3 class="font-bold text-sm mb-2">力を無駄なく伝える</h3>
+                        <p class="text-xs text-slate-600">体の中心（体幹）から手足へ力を伝える土台を作ります。野球やゴルフなど体をひねるスポーツで、下半身の力をロスなく上半身に伝えます。</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                        <div class="text-secondary mb-2"><i class="fa-solid fa-arrows-turn-to-dots text-xl"></i></div>
+                        <h3 class="font-bold text-sm mb-2">素早い動きとバランス</h3>
+                        <p class="text-xs text-slate-600">腰周りが安定することで、急な方向転換でも体がブレなくなります。太ももの裏の筋肉などへの負担を減らし、肉離れなどのケガを防ぎます。</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                        <div class="text-secondary mb-2"><i class="fa-solid fa-yin-yang text-xl"></i></div>
+                        <h3 class="font-bold text-sm mb-2">とっさの時の姿勢キープ</h3>
+                        <p class="text-xs text-slate-600">片足立ちでの動作や、相手にぶつかられた時の反応において、自分の体がどう動いているかを感じる能力が高まり、競技で有利になります。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第7章 -->
+        <section id="chap7" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mb-10 pt-16 -mt-16">
+            <div class="p-6 sm:p-8 border-t-4 border-primary">
+                <div class="flex items-center mb-6">
+                    <div class="bg-light text-primary w-12 h-12 rounded-full flex items-center justify-center mr-4 shrink-0">
+                        <i class="fa-solid fa-lungs-virus text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">第7章 新型コロナ感染後の呼吸と体力の回復</h2>
+                </div>
+                <p class="mb-4">ピラティスの「呼吸のコントロール」と「体幹を安定させる」方法は、新型コロナウイルスに感染した後の長引く不調（後遺症）からの回復にも役立てられています。</p>
+                <div class="bg-gradient-to-br from-teal-50 to-white p-5 rounded-lg border border-teal-100">
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        病気で長くベッドで休んでいると、運動不足によって著しく体力が落ちてしまいます。ピラティスの「胸や肋骨を大きく広げる深い呼吸」は、呼吸をするための肺や筋肉のリハビリになると同時に、全身の筋力アップにもつながります。実際に回復に取り組んだ人たちの中で、体を支えるスタミナが増え、体のふらつきが減ったことが確認されており、安全で効果的なリハビリ方法であることが証明されています。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 引用元・参考文献 -->
+        <section id="references" class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden mb-10 pt-16 -mt-16">
+            <div class="p-6 sm:p-8 border-t-4 border-slate-400">
+                <div class="flex items-center mb-6">
+                    <div class="bg-slate-100 text-slate-600 w-12 h-12 rounded-full flex items-center justify-center mr-4 shrink-0">
+                        <i class="fa-solid fa-book text-xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">引用元・参考文献</h2>
+                </div>
+                <p class="text-sm text-slate-600 mb-4">本ページは添付資料「ピラティス論文まとめ」および、同資料内に記載された以下の科学的論文・研究データを元に作成されています（一部抜粋）。</p>
+                
+                <ul class="list-decimal list-inside space-y-3 text-xs text-slate-500 bg-slate-50 p-5 rounded-lg border border-slate-100 break-words">
+                    <li>The effects of pilates on mental health outcomes: A meta-analysis of ... <a href="https://pubmed.ncbi.nlm.nih.gov/29609943/" class="text-blue-500 hover:underline ml-1" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/29609943/</a></li>
+                    <li>The impact of Pilates exercise for depression symptoms in female patients: A systematic review and meta-analysis - PMC <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10578749/" class="text-blue-500 hover:underline ml-1" target="_blank" rel="noopener noreferrer">https://pmc.ncbi.nlm.nih.gov/articles/PMC10578749/</a></li>
+                    <li>Effect of Pilates on Pain and Health-Related Quality of Life in Fibromyalgia Patients: A Systematic Review and Meta-Analysis - MDPI <a href="https://www.mdpi.com/2077-0383/13/23/7447" class="text-blue-500 hover:underline ml-1" target="_blank" rel="noopener noreferrer">https://www.mdpi.com/2077-0383/13/23/7447</a></li>
+                    <li>How Pilates Exercises Affect Sports Performance?: A Systematic Review - DergiPark <a href="https://dergipark.org.tr/en/download/article-file/2799826" class="text-blue-500 hover:underline ml-1" target="_blank" rel="noopener noreferrer">https://dergipark.org.tr/en/download/article-file/2799826</a></li>
+                    <li>(PDF) HOW PILATES EXERCISES AFFECT SPORTS ... <a href="https://www.researchgate.net/publication/376198356_HOW_PILATES_EXERCISES_AFFECT_SPORTS_PERFORMANCE_A_SYSTEMATIC_REVIEW" class="text-blue-500 hover:underline ml-1" target="_blank" rel="noopener noreferrer">https://www.researchgate.net/publication/376198356...</a></li>
+                    <li>Pilates Reducing Falls Risk Factors in Healthy Older Adults: A Systematic Review and Meta-Analysis - Frontiers <a href="https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2021.708883/full" class="text-blue-500 hover:underline ml-1" target="_blank" rel="noopener noreferrer">https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2021.708883/full</a></li>
+                    <li>Effects of Pilates Exercises on Core Stability After Recovery...</li>
+                    <li class="list-none text-center pt-2">※ その他、資料内に記載の全27件の論文・資料を参照</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-300 py-8 text-center mt-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="text-sm">本ページは「ピラティス・メソッドの包括的科学的根拠に関する体系的専門報告書」の内容を一般向けに要約・再構成したものです。</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-secondary hover:-translate-y-1 focus:outline-none z-50">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll to Top Logic
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                scrollTopBtn.classList.add('opacity-100', 'cursor-pointer');
+            } else {
+                scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                scrollTopBtn.classList.remove('opacity-100', 'cursor-pointer');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
